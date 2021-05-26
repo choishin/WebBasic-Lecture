@@ -2,38 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Practice02-01</title>
+    <style>
+        /*class명을 호출해서 CSS를 적용하는 방법*/
+        .div_class1 {
+            background-color: aquamarine;
+        }
+        .div_class2 {
+           color:darkviolet ;
+        }
+        .div_class3 {
+            width: 200px;
+            height: 200px;
+        }
+        /*name은 거의 사용되지 않으므로 생략*/
+        /*id명을 호출해서 CSS를 적용하는 방법*/
+        #span11 {
+            background-color: deeppink;
+        }
+        #span12 {
+            background-color: greenyellow;
+        }
+        #span13 {
+            background-color: darkslateblue;
+        }
+        #span21 {
+            background-color: dodgerblue;
+        }
+        #span22 {
+            background-color: indianred;
+        }
+        #span23 {
+            background-color: lightseagreen;
+        }
+    </style>
 </head>
 <body>
+    <!--class는 여러군데에 포함될 수 있음-->
+    <!--id는 유일함, 중복된 이름을 사용할 수 없음-->
+    <div class="div_class1" id="div1">
+        <span class="span_class" name="span_name1" id="span11">text1</span> 
+        <span class="span_class" name="span_name1" id="span12">text2</span>
+        <span class="span_class" name="span_name1" id="span13">text3</span> 
+    </div>
     <br>
+    <div class="div_class1 div_class2" id="div2">
+        <span class="span_class" name="span_name2" id="span21">text1</span> 
+        <span class="span_class" name="span_name2" id="span22">text2</span>
+        <span class="span_class" name="span_name2" id="span23">text3</span> 
+    </div>
     <br>
-    <h1>mp4 플레이 리스트</h1>
-    <video controls width="250">    
-        <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
-                type="video/mp4">
-    </video>
-    <video controls width="250">    
-        <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
-                type="video/mp4">
-    </video>
-    <video controls width="250">    
-        <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
-                type="video/mp4">
-    </video>
-    <br>
-    <br>
-    <h1>유투브 플레이 리스트</h1>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/6MyHdz_MW3Y"
-    title="YouTube video player" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/6MyHdz_MW3Y"
-    title="YouTube video player" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/6MyHdz_MW3Y"
-    title="YouTube video player" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    <div class="div_class1 div_class2 div_class3" id="div3">
+        <span class="span_class" name="span_name3" id="span31">text1</span> 
+        <span class="span_class" name="span_name3" id="span32">text2</span>
+        <span class="span_class" name="span_name3" id="span33">text3</span> 
+    </div>
 </body>
 </html>

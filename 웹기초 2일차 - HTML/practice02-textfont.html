@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--google font에서 가지고 오기-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet">
+<style>
+    /*만일 text-align : start,end 가 있다면 문자의 시작이 오른쪽에서 왼쪽으로 진행됨
+      예를 들면 아랍언어같은, 이런 기준에 대한 차별을 없애기 위한 옵션*/
+    .text-align-text {
+        text-align: center;
+    }
+    body {
+        /*font-family : 'Times New Roman', Times, serif;*/
+        /*google에서 가지고 온 폰트 적용해주기*/
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    /*em : 폰트의 몇 배를 해주겠다. 할때 그 배수의 단위.*/
+    .em {
+        font-size: 2.5em; 
+    }
+    .vw {
+        font-size: 10vw;
+    }
+</style>
+</head>
+<body>
+    <h1>TEXT</h1>
+    <div class="text-align-text">text-align-text</div>
+    <div class="em">em</div>
+    <div class="vw">vw</div>
+    <div>한국어는 이런 느낌으로</div>
+</body>
+</html>

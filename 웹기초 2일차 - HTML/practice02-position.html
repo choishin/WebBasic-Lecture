@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--position-->
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+           
+           /*왼쪽에서 100px 떨어져서 나옴*/
+            /*left: 100px;*/ 
+            /*오른쪽에서 100px 떨어져서 나옴*/
+            /*right: 100px;*/ 
+            /*top: 100px;*/
+            /*bottom: 100px;*/
+            background-color: aquamarine;
+            /*absolute는 윈도우 기준으로 자기 나름의 원칙이 있음, relative는 static 이었을 때의 값을 기준으로 움직임*/
+            position: absolute;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">Hello World</div>
+</body>
+</html>
