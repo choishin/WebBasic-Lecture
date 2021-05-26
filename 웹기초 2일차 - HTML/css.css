@@ -1,0 +1,15 @@
+
+/*스타일 시트의 주석*/
+div {
+background-color: cadetblue;
+}
+.bg_purple {
+background-color: blueviolet;
+background-image: ;
+}
+
+/*CSS 적용시키는 방법3-2 : 몇번째 아이로 지정해서 css 거는 방식*/
+div:nth-child(5) {
+background-color: coral;
+}
+

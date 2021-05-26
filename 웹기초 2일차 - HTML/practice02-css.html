@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--2번 내부선언 방식 : <style> 위치 (혼자 알아낸 사실 : 2번과 3번을 동시에 쓰면 3번이 적용됨-->
+    <style>
+        div {
+        background-color: burlywood;
+        }
+    </style>
+<!--3번 방식 : 링크 위치-->
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<!--CSS 적용시키는 방법1 : 인라인 추가 방식-->
+    <div style="background-color: aquamarine;">Hello World</div>
+    
+<!--CSS 적용시키는 방법2 : 내부 선언 방식-->
+    <div>Hello World</div>
+
+<!--CSS 적용시키는 방법3-1 : css 파일 링크 걸어서 하는 방식 (따로 작성)-->
+    <div class="bg_purple"><h1>Hello World</h1></div>
+    <div class="bg_purple">Hello World</div>
+
+<!--CSS 적용시키는 방법3-2 : 몇번째 아이로 지정해서 css 거는 방식-->
+    <div>Hello World</div>
+</body>
+</html>
