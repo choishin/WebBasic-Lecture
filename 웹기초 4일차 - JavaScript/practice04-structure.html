@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Java외부선언 방식-->
+    <script src="javascript.js"></script>
+    <!--Javascript : 내부 선언 방식-->
+    <!--Javascript 함수, 변수 쓰는 법-->
+    <!-- memo1.let이나 var나 똑같음 (변수 정의 하는 역할) 하지만 두교수님 다 let을 씀-->
+    <!-- memo2. double quote, single quote 둘다 됨!-->
+    <!-- memo3.chrome 개발자 모드에서 console창에서도 작업할 수 있음-->
+    <!-- memo4. typeof 를 쓰면 변수의 형식이 뭔지 알 수 있음-->
+    <!-- memo5. return이 있으면 리턴이 되고 없으면 안됨-->
+    <!-- memo6. if문, for문 java랑 똑같음-->
+    <script>
+        var i = 10;                     //변수 (javascript는 타입이 따로 없음)
+        var str = "hello";              //(<-이렇게 하면 스트링)
+        var isDone = false;             //(<- 이렇게 하면 Boolean)
+        
+        i ="hello";                     //integer였다가 string으로 바뀜 (결코 좋은게 아님... 오류 찾기 힘듬)
+        let j = 10;                     
+        const a = 10;                   //const는 상수 
+        
+        function myFunction(i) {
+            console.log(i);
+            return i;
+            //alert('click');
+        }
+    </script>
+
+</head>
+<body onload="onLoad()">
+    <!--Javascript : 인라인 추가 방식-->
+    <div onclick="alert(myFunction(10))">여기를 눌러주세요!</div>
+    
+    <!-- alert : 경고창 실행-->
+    <!-- confirm : 물어보기 창 실행-->
+    <script>
+        alert ('안녕하세요'); //경고창 실행
+        confirm('안녕하실래요?'); //확인창 띄우기
+    </script>
+
+    <!--외부입력 창 실행-->
+    <script>
+        var text = prompt('안녕하실래요?');
+    </script>
+
+    <script>
+        document.write("<h1>h1태그</h1>");
+        //새로운 창 열기
+        document.open();
+    </script>
+    <script>
+            //놓쳤음... 함수만들고 아이디 가져오는 부분
+    </script>
+    <script>
+        <div onmouseover="onMouseOver()" onmouseout="onMouseOut()"></div>
+
+        function onMuouseOver() {
+            console.log("마우스가 올라왔다!");
+        }
+        function onLoad() {
+            alert('load');
+        }
+    </script>
+    
+</body>
+</html>

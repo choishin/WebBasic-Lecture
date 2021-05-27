@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+
+    <script>
+        function getText() {
+            let text = prompt('텍스트를 입력해주세요');
+            
+            if(text=='') {
+                alert('텍스트 값을 입력해주세요');
+            }
+            else {
+                document.write("<div id='textbox' style='font-size: 50px;'><b>"+text+"<b></div>");
+                document.write("<button type='button' onclick='changeRed()'>red</button>");   
+                document.write("<button type='button' onclick='changeBlue()'>blue</button>");    
+                document.write("<button type='button' onclick='changeGreen()'>green</button>");   
+
+                }
+        }
+        function changeRed() {
+            alert('빨간색으로 변경됩니다');
+            document.getElementById("textbox").style.color = "#ff0000";
+    
+        }
+        function changeBlue() {
+            alert('파란색으로 변경됩니다');
+            document.getElementById("textbox").style.color = "#5357d9";
+        }
+        function changeGreen() {
+            alert('초록색으로 변경됩니다');
+            document.getElementById("textbox").style.color = "#55d953";
+            
+        }
+
+    </script>
+</head>
+<body>
+
+<button onclick="getText()">텍스트가져오기</button>
+
+</body>
+</html>
