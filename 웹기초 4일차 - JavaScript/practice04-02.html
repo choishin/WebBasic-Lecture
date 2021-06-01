@@ -11,7 +11,7 @@
 <body>
     <script>
         let int = prompt('숫자를 입력해주세요');
-
+        //isNaN : is Not a Number의 줄임말, 숫자인지 아닌지 판단을 해주는 함수 숫자가 아니라면 1, 숫자라면 0
         if (isNaN(int) == 0) {
             if (int >= 1 && int <= 100) {
                 for (var i=1; i<=100; i++) {
@@ -20,8 +20,7 @@
                     if(i>=100) {
                         alert('완료되었습니다');
                     }
-                }
-              
+                }    
             }
             else {
                 alert('1이상 100이하를 넣어주세요');
