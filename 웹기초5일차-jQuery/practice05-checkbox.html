@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function allcheck() {
+         $("input:checkbox[name=mycheck]").each(function(index)
+         {
+            console.log();    
+            this.checked = true;
+        });
+    }
+    </script>
+</head>
+<body>
+   <input type="checkbox" name="mycheck" id=""> 1번
+   <input type="checkbox" name="mycheck" id=""> 2번
+   <input type="checkbox" name="mycheck" id=""> 3번
+   <input type="checkbox" name="mycheck" id=""> 4번
+
+   <div>
+       <button onclick="allcheck()">전체체크</button>
+   </div>
+</body>
+</html>

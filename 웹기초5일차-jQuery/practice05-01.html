@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <button id="button" onclick="getText()">텍스트가져오기</button>
+    <div id="box1"></div>
+    <script>
+
+        function getText() {
+            let text = prompt('텍스트를 입력해주세요');
+            if (text == null || text == "") {
+                alert('텍스트 값을 입력해주세요');
+            }
+            else {
+                $("#button").hide();
+                $('#box1').append("<div class='textbox' style='font-size: 50px;'><b>" + text + "<b></div>" +
+                    "<button class='red' onclick='changeRed()'>red</button>" +
+                    "<button class='blue' onclick='changeBlue()'>blue</button>" +
+                    "<button class='green' onclick='changeGreen()'>green</button>");
+            }
+        }
+
+        function changeRed() {
+          
+                alert("빨강색으로 변경됩니다.");
+                $(".textbox").css("color", "red");
+          
+        }
+
+        function changeBlue() {
+       
+                alert("파랑색으로 변경됩니다.");
+                $(".textbox").css("color", "blue");
+   
+        }
+
+        function changeGreen() {
+    
+                alert("초록색으로 변경됩니다.");
+                $(".textbox").css("color", "green");
+    
+        }
+
+    </script>
+
+</body>
+
+</html>

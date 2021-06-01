@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <style>
+        .active{
+            color: white;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="egoing" style="position: relative; left: 10px;">
+        Coding Everybody
+    </div>
+    <div id="target">
+        Hello World!
+    </div>
+    <script>
+        //document.getElementById('target')과 같음
+        //$("#target").html("World Hello");
+        //일렇게 두개를 한번에 바꿀 수 도 있음
+        //$("#target,#egoing").html("World Hello").addClass('active').css('border','1px solid green');
+        //.animate
+     
+        $( "#egoing" ).animate({
+            opacity: 0.25,
+            left: "+=100",
+        }, 5000, function() {
+            // Animation complete.
+  });
+
+    </script>
+</body>
+</html>

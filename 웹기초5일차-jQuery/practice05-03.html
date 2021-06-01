@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+    .container {
+        display: flex;
+      }
+    
+      .button1 {
+        width: 205px;
+        height: 65px;
+        background-color: #757575;
+        color: white;
+        display: flex;
+        text-align: center;
+        font-size: 16px;
+        justify-content: center;
+        padding-top: 10px;
+        margin: 10px 10px 10px 10px;
+        border: solid 1px black;
+    
+      }
+    
+      .button2 {
+        width: 200px;
+        height: 50px;
+        background-color: #757575;
+        color: white;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        padding-top: 16px;
+        margin: 10px 10px 10px 10px;
+        border: solid 1px black;
+      }
+    
+      .button2:hover {
+        background: #fafafa;
+        color: black;
+      }
+    </style>
+    <script>
+        function setColor(num) {
+            
+            let button_array = document.getElementsByClassName("button1");
+            //let button_array = $(".button1");
+
+            for (var i=0; i < button_array.length; i++) {
+                if (i == num) {
+                    button_array[i].style.backgroundColor = "white"
+                    button_array[i].style.color = "#757575"
+                    //$
+                }
+                else {
+                    button_array[i].style.backgroundColor = "#757575"
+                    button_array[i].style.color = "white"
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div><input type="button" class="button1" value="html" onclick="setColor(this)" /></div>
+        <div><input type="button" class="button1" value="css" onclick="setColor(this)" /></div>
+        <div><input type="button" class="button1" value="javascript" onclick="setColor(this)" /></div>
+    </div>
+    <br>
+    <br>
+    
+    <div class="container">
+        <div class="button2">html</div>
+        <div class="button2">css</div>
+        <div class="button2">javascript</div>
+    </div>
+</body>
+</html>

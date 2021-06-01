@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //정규식을 표현하는 두가지 방식
+    var pattern = /a/;
+    var pattern = new RegExp('a');
+
+    pattern.exec('abcde'); //추출 -> 'a'가 나옴
+    pattern.text('abcde'); //검사 -> true/false가 나옴
+
+    String.match();
+    String.replace();
+
+    
+</script>
+
+
+
+</body>
+</html>

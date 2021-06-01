@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function hide() {
+            $("#text").hide(1000,function() {
+                console.log("hide!!!!!");    
+            });
+        }
+
+        function show() {
+            $("#text").show(1000, function() {
+
+                console.log("show1!!!!!");
+            });
+            console.log("show2!!!!");
+        }
+
+        // $("#text").hide(500)
+        // .show(500)
+        // .hide(500)
+        // .fadeIn(500)
+        // .fadeOut(500)
+        // .slideUp(500)
+        // .slideDown(500)
+        // .animate({
+        //     left : "250px"
+        // });
+
+        function myAnimate() {
+            $("#box").animate({
+                left:"100px",
+                opacity: "0.5",
+                top: "100px"
+            }).animate({
+                width: "-=150px",
+                height: "-=150px"
+            }).animate({
+                width: "+=150px",
+                height: "+=150px"
+            });
+    }
+    </script>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            position: relative; 
+        }
+    </style>
+</head>
+<body>
+    <h1 id="text">Hello World</h1>
+    <button onclick="hide()">hide</button>
+    <button onclick="show()">show</button>
+    <button onclick="myAnimate()">animate</button>
+    <div id="box"></div>
+
+</body>
+</html>

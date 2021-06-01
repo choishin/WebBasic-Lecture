@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        #container {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+
+        #avocado {
+            position: relative;
+            width: 100px;
+        }
+    </style>
+    <script>
+        window.addEventListener("keydown", function(event) {
+            switch (event.code) {
+                case "keyS":
+                case "ArrowDown":
+                    updatePosition($("#avocado"), {
+                        top: "+=100px"
+                    });
+                    break;
+                case "keyW":
+                case "ArrowUp":
+                    updatePosition($("#avocado"), {
+                        top: "-=100px"
+                    });
+                    break;
+                case "keyA":
+                case "ArrowLeft":
+                    updatePosition($("#avocado"), {
+                        left: "-=100px"
+                    });
+                    break;
+                case "keyD":
+                case "ArrowRight":
+                    updatePosition($("#avocado"), {
+                        left: "+=100px"
+                    });
+                    break;
+            }
+        });
+
+        let isAnimating = false;
+        function updatePosition(target,options) {
+            if (isAnimating == false) {
+                isAnimating == true;
+                target.animate(options, function() {
+                    isAnimating == false;
+                });
+            }
+
+            
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <img id="avocado" src="avocado.png">
+    </div>
+
+    <!-- <script>
+        let button = document.getElementsById("btn");
+        button.addEventListener("click", function() {
+            console.log("click!!!!");
+        })
+    </script> -->
+
+</body>
+</html>

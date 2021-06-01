@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .column1 {
+            display: inline-block;
+            width: 100px;
+            height: 10px;
+            margin: 10px 10px 10px 10px;
+        }
+
+        .column2 {
+            display: inline-block;
+            width: 100px;
+            height: 10px;
+            margin: 10px 10px 10px 10px;
+        }
+
+        .column3 {
+            display: inline-block;
+            width: 500px;
+            height: 10px;
+            margin: 10px 10px 10px 10px;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            background-color: darkgray;
+            display: flex;
+            margin-top: 10px;
+            position: relative;
+            left: 320px;
+            
+
+        }
+    </style>
+        <script>
+            function getTime() {
+                let now = new Date();
+                let date = now.toLocaleString()
+                document.write(date);
+            }
+    
+            function checkAll() {
+                $("#check").change(function () {
+                    if ($("#total").is(":checked") == true) {
+                        $("input:checkbox[name=mycheck]").each(function () {
+                            console.log();
+                            this.checked = true;
+                        });
+    
+                    } else {
+                        $("input:checkbox[name=mycheck]").each(function () {
+                            console.log();
+                            this.checked = false;
+                        });
+                    }
+                });
+            }
+
+            function showlog(value) {
+                if($("input:checkbox[id='']:checked")) {
+                    
+                }
+            }
+    
+        </script>
+</head>
+
+<body>
+    <div>
+        <span class='column1'><input type="checkbox" name="mycheck" id="total" onclick="checkAll()">확인</span>
+        <span class='column2'>제목</span>
+        <span class='column3'>글쓴시간</span>
+    </div>
+    <div>
+        <span class='column1'><input type="checkbox" name="mycheck" id="check1"></span>
+        <span class='column2'>글제목1</span>
+        <span class='column3'><script>getTime()</script></span>
+    </div>
+    <div>
+        <span class='column1'><input type="checkbox" name="mycheck" id="check2"></span>
+        <span class='column2'>글제목2</span>
+        <span class='column3'><script>getTime()</script></span>
+    </div>
+    <div>
+        <span class='column1'><input type="checkbox" name="mycheck" id="check3"></span>
+        <span class='column2'>글제목3</span>
+        <span class='column3'><script>getTime()</script></span>
+    </div>
+    <div>
+        <span class='column1'><input type="checkbox" name="mycheck" id="check4"></span>
+        <span class='column2'>글제목4</span>
+        <span class='column3'><script>getTime()</script></span>
+    </div>
+    <div>
+        <span class='column1'><input type="checkbox" name="mycheck" id="check5"></span>
+        <span class='column2'>글제목5</span>
+        <span class='column3'><script>getTime()</script></span>
+    </div>
+    <div>
+        <span class='column1'><input type="checkbox" name="mycheck" id="check"></span>
+        <span class='column2'>글제목6</span>
+        <span class='column3'><script>getTime()</script></span>
+    </div>
+    <div>
+        <button type='button' onclick="showlog">로그</button>
+    </div>
+
+</body>
+
+</html>

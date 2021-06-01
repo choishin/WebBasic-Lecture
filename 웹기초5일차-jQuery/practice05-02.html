@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<style>
+    #titlebox {
+        background-color: grey;
+        width: 300px;
+        height: 50px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    #mainbody {
+        background-color: #EAEBEF;
+        width : 300px;
+        height: 300px;
+        font-size: medium;
+        text-align: left;
+    }
+    .textbox {
+        background-color: #FFFFFF;
+        width : 250px;
+        height : 70px;
+        position : relative;
+        left : 25px;
+        top: 10px;
+        margin-bottom: 10px;
+           
+    }
+    #submit {
+        width: 100px;
+        height: 50px;
+        background-color: grey;
+        color: black;
+        font-size: 15px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 10px 10px 0px;
+       
+    }
+</style>
+<body>
+    <div id='titlebox'>기사등록하기</div>
+        <div id="mainbody">
+     
+    </div>
+    <button id='submit' onclick="inputText()">등록하기</button>
+
+    <script>
+        function inputText() {
+            let text= prompt('텍스트를 입력해주세요');
+
+            if (text == null || text == "") {
+                alert("텍스트를 입력해주세요");
+            }
+            else {
+
+                $("#mainbody").append("<div class='textbox'>"+text+"</div>");
+               // $(".textbox").append(text);    
+            }      
+        }
+    </script>
+</body>
+</html>

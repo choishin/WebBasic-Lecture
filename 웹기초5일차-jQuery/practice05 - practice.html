@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--jQuery CDN 라이브러리를 import하는 위치-->
+    <!--memo1. 무조건 최신버전을 쓸 필요 없음.. 오히려 오류가 날 가능성이 큼-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        //익명 함수 : 이름이 없는 함수를 이용이 가능 (자바에도 있음)
+        //jQuery 문법 : $(" ~javascript~ ""); <-이런 형태
+
+        //jQuery 예시
+        $("#button1").on("click", function() {
+            $("#text").text("더 이상 외울 수 없다");
+        }).mouseleave(function () {
+            console.log("mouseleave");
+        });
+        //=> : function(event) 이것과 같은 뜻
+
+    </script>
+</head>
+
+<body>
+    <button id="button1">글자 입력</button>
+    <div id="text" class="large-font"></div>
+
+</body>
+
+</html>

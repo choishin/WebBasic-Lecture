@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Game Project</title>
+    <style>
+        body {
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        #background {
+            position: absolute;
+            display: flex;
+            width: 200%;
+            height: 1000px;
+            background-position: center;
+            background-size: 400px 400px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            animation-name: bg-slide;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            background-image: url("C:\git\WebBasic-Lecture\웹기초6일차-Final\asset\supermarioback.png");
+        }
+
+        @keyframes bg-slide {
+            from {
+                left: 0px;
+            }
+
+            to {
+                left: -100%;
+            }
+        }
+
+        #container {
+            position: absolute;
+            width: 100%;
+            height: 850px;
+            border: ipx solid black;
+        }
+
+        #mario {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            bottom: 0px;
+            left: 50px;
+        }
+
+        #enemy {
+            position: absolute;
+            height: 70px;
+            width: 70px;
+            bottom: 0px;
+            right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div><img id="background" src="C:\git\WebBasic-Lecture\웹기초6일차-Final\asset\supermarioback.png"></div>
+        <img id="mario" src="C:\git\WebBasic-Lecture\웹기초6일차-Final\asset\mario.gif" alt="">
+        <img id="enemy" src="C:\git\WebBasic-Lecture\웹기초6일차-Final\asset\mushroom.gif" alt="">
+    </div>
+    <script>
+        let mario = $("#mario");
+
+        $("body").keydown(function (event) {
+            switch (event.code) {
+                case "Space":
+                    if (isJumping == false) {
+                        jump();
+                    }
+                    break;
+                case "keyW":
+                case "ArrowUp":
+                    if (isJumping == false) {
+                        jump();
+                    }
+                    break;
+                case "keyA":
+                case "ArrowLeft":
+                    if (isAnimating == false) {
+                        updatePosition($("#mario"), {
+                            left: "-=100px"
+                        });
+                    }
+                    break;
+                case "keyD":
+                case "ArrowRight":     
+                    if (isAnimating == false) {
+                        updatePosition($("#mario"), {
+                            left: "+=100px"
+                        });
+                    }
+                    break;
+            }
+        });
+
+        let isJumping = false;
+        function jump() {
+            isJumping = true;
+            mario.animate({
+                bottom: "+=150px"
+            }).animate({
+                bottom: "-=150px"
+            }, function () {
+                isJumping = false;
+            });
+        }
+
+        let isAnimating = false;
+        function updatePosition(target, options) {
+            if (isAnimating === false) {
+                isAnimating = true;
+                target.animate(options, function () {
+                    isAnimating = false;
+                });
+            }
+        }
+
+        function enemyMove() {
+            $("#enemy").animate({
+                right: "100%"
+            }, 10000, function () {
+                $("#enemy").css("right", "-100%;");
+            });
+        }
+
+        function deadCheck() {
+            let isDead = false;
+
+            let mario = $("#mario");
+            let enemy = $("#enemy");
+
+            let marioRightX = parseInt($("#mario").css("left").replace("px", "")) + parseInt($("#mario").css("width").replace("px", ""));
+            let marioLeftX = parseInt($("#mario").css("right").replace("px", ""));
+            let marioTopY = parseInt($("#mario").css("top").replace("px", ""))+parseInt($("#mario").css("height").replace("px", ""))
+            let marioBottomY = parseInt($("#mario").css("bottom").replace("px", ""));
+
+            let enemyRightX = parseInt($("#enemy").css("right").replace("px", "")) + parseInt($("#enemy").css("width").replace("px", ""))
+            let enemyLeftX = parseInt($("#enemy").css("left").replace("px", ""));
+            let enemyTopY = parseInt($("#enemy").css("top").replace("px", "")) + parseInt($("#enemy").css("height").replace("px", ""));
+            let enemyBottomY = parseInt($("#enemy").css("bottom").replace("px", ""));
+
+            if (marioRightX > enemyLeftX && marioBottomY < enemyTopY) {
+                isDead = true;
+            }
+            return isDead;
+        }
+        setInterval(function () {
+            // 적 이동
+            enemyMove();
+
+            // 죽었는지 체크
+            if (deadCheck()) {
+                alert("마리오가 죽었습니다.")
+                
+            }
+        }, 300);
+
+    </script>
+</body>
+</html>
