@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <div id="box1"></div>
+    <script>
+        $(document).ready(function() {
+            var signUpBtn = $('#signBtn');
+            signUp =$('#signup');
+            loginForm=$('#loginForm');
+            introSite=$('#introsite');
+
+            signUpBtn.click(function() {
+                loginForm.slideUp();
+                signUp.slideDown();
+                introSite.slideUp();
+
+            });
+        });
+    </script>
+</body>
+</html>

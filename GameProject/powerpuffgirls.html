@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        body {
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        #background {
+            width: 200%;
+            height: 800px;
+            background-position: center;
+            background-image: url("back3.jpg");
+            background-size: 1600px 1000px;
+            animation-name: bg-slide;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            z-index: -1;
+        }
+
+        @keyframes bg-slide {
+            from {
+                background-position: 0px center;
+            }
+
+            to {
+                background-position: -500px center;
+            }
+        }
+
+        #container {
+            position: absolute;
+            width: 100%;
+            height: 850px;
+            border: ipx solid black;
+        }
+
+        #title {
+            position: absolute;
+            left: 500px;
+            top: 200px;
+            width: 665px;
+            height: 375px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('PPG_logo-removebg-preview.png');
+        }
+
+        #credit {
+            position: absolute;
+            left: 500px;
+            top: 200px;
+            width: 665px;
+            height: 375px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #ppgirls {
+            position: absolute;
+            width: 380px;
+            height: 260px;
+            bottom: 100px;
+            left: 50px;
+        }
+
+        #lose {
+            position: absolute;
+            /* width: 380px;
+            height: 260px; */
+            width: 420px;
+            height: 320px;
+            bottom: 300px;
+            left: 50px;
+        }
+
+        #enemy {
+            position: absolute;
+            height: 250px;
+            width: 250px;
+            bottom: 50px;
+            right: 50px;
+        }
+        #enemybox {
+            position: absolute;
+            height: 250px;
+            width: 250px;
+            bottom: 50px;
+            right: 50px;
+        }
+
+        #scorebox {
+            position: absolute;
+            left: 50px;
+            top: 20px;
+        }
+
+        #score {
+            position: absolute;
+            left: 80px;
+            top: 0px;
+        }
+
+        .beam {
+            position: absolute;
+            height: 180px;
+            bottom: 100px;
+            left: 150px;
+        }
+    </style>
+    <title>Game Project</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="background"></div>
+        <div id="scorebox"><span>Score:</span><span id="score">0</span></div>
+        <div id="title" onclick="start()"><img src="PPG_logo-removebg-preview.png"> </div>
+        <div id="credit"><img src="powerpuff/theend-removebg-preview.png"></div>
+        <img id="ppgirls" src="powerpuff/1gPG-unscreen.gif" alt="">
+        <img id="lose" src="powerpuff/lose-removebg-preview.png" alt="">
+        <div class="beam"><img class="beam" src="powerpuff/Valentines-Day-Love-unscreen.gif" alt=""></div>
+        <img id="enemy" src="powerpuff/enemy-removebg-preview.png" alt="">
+    </div>
+    <script>
+        let ppgirls = $("#ppgirls");
+        $('.beam').hide();
+        $('#credit').hide();
+        $('#lose').hide();
+
+        let isJumping = false;
+        function jump() {
+            isJumping = true;
+            ppgirls.animate({
+                bottom: "+=400px"
+            }).animate({
+                right: "+=20px"
+            }, 900).animate({
+                bottom: "-=400px"
+            }, function () {
+                isJumping = false;
+            });
+        }
+
+        let score = 0;
+        function enemyMove() {
+
+            $("#enemy").animate({
+                right: "100%"
+            }, 1000 * Math.floor((Math.random() * 7) + 2), function () {
+                $("#enemy").css("right", "-100%");
+                score = score + 100;
+            });
+        }
+
+        function deadCheck() {
+
+            ppgirls = $("#ppgirls");
+            enemy = $("#enemy");
+
+            let isDead = false;
+
+            let ppgirlsRightX = parseInt($("#ppgirls").css("left").replace("px", "")) + parseInt($("#ppgirls").css("width").replace("px", ""));
+            let ppgirlsLeftX = parseInt($("#ppgirls").css("left").replace("px", ""));
+            let ppgirlsBottomY = parseInt($("#ppgirls").css("bottom").replace("px", ""));
+
+            let enemyRightX = parseInt($("#enemy").css("left").replace("px", "")) + parseInt($("#enemy").css("width").replace("px", ""))
+            let enemyLeftX = parseInt($("#enemy").css("left").replace("px", ""));
+            let enemyTopY = parseInt($("#enemy").css("bottom").replace("px", "")) + parseInt($("#enemy").css("height").replace("px", ""));
+
+            if (ppgirlsRightX > enemyLeftX && ppgirlsBottomY < enemyTopY) {
+                if (ppgirlsLeftX < enemyRightX) {
+                    isDead = true;
+                }
+            }
+            return isDead;
+        }
+
+        let isAttacking = false;
+        function attack() {
+            if (isAttacking == false) {
+                $('.beam').css("left", "150px");
+                isAttacking = true;
+                $('.beam').show().animate({
+                    left: "+=500px"
+                }, 500, function () {
+                    $(".beam").fadeOut()
+                });
+                isAttacking = false;
+            }
+            attackCheck();
+        }
+
+        function attackCheck() {
+
+            beam = $('.beam');
+            enemy = $('#enemy');
+
+            let isAttacted = false;
+
+            let beamRightX = parseInt($('.beam').css("left").replace("px", "")) + parseInt($('.beam').css("width").replace("px", ""));
+            let beamLeftX = parseInt($(".beam").css("left").replace("px", ""));
+
+            let enemyLeftX = parseInt($("#enemy").css("left").replace("px", ""));
+            let enemyRightX = parseInt($("#enemy").css("left").replace("px", "")) + parseInt($("#enemy").css("width").replace("px", ""))
+            
+            console.log(beamRightX+"--"+enemyLeftX);
+
+
+            if (beamRightX > enemyLeftX) {
+
+                    isAttacted = true;
+                    $('#enemy').remove();
+                    isAttacted = false;
+                
+            }
+
+        }
+
+        $("body").keydown(function (event) {
+            switch (event.code) {
+                case "Space":
+                    if (isJumping == false) {
+                        jump();
+                    }
+                    break;
+                case "keyW":
+                case "ArrowUp":
+                    if (isJumping == false) {
+                        jump();
+                    }
+                    break;
+
+                case "Enter":
+                    if (isAttacking == false) {
+                        attack();
+                    }
+                    break;
+            }
+        });
+
+        function start() {
+            $('#title').hide();
+            setInterval(function () {
+                // 적 이동
+                enemyMove();
+
+                // 죽었는지 체크
+                if (deadCheck()) {
+                    console.log('파워퍼프걸 죽음');
+                    alert("죽었습니다ㅠㅠ");
+                    $('#ppgirls').hide();
+                    $('#lose').show();
+                    $('#title').hide();
+                    $('#credit').show();
+                    window.location.reload();
+                }
+                $('#score').text(score);
+            }, 33);
+        }
+    </script>
+</body>
+
+</html>
